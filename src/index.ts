@@ -84,7 +84,7 @@ export class Plugin extends PuppeteerExtraPlugin {
       this._browserSessions[wsEndpoint] = await new Tunnel(wsEndpoint, this.opts).create()
     }
 
-    this._printGeneratedPasswordWhenNotOverridden(this._browserSessions[wsEndpoint].url)
+    this._printGeneratedPasswordWhenNotOverridden(this._browserSessions[wsEndpoint].url ?? '')
     this.debug('createTunnel', {
       wsEndpoint,
       sessions: Object.keys(this._browserSessions)
