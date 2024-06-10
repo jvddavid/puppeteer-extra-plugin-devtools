@@ -1,0 +1,103 @@
+{
+  "name": "@jvddavid/puppeteer-extra-plugin-devtools",
+  "version": "3.0.0",
+  "license": "MIT",
+  "description": "Make puppeteer browser debugging possible from anywhere (devtools with screencasting on the internet).",
+  "keywords": [
+    "puppeteer-extra-plugin-devtools",
+    "puppeteer",
+    "puppeteer-extra",
+    "puppeteer-extra-plugin",
+    "devtools",
+    "devtools-tunnel",
+    "localtunnel",
+    "remote-debugging",
+    "chrome",
+    "headless",
+    "pupeteer"
+  ],
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "author": {
+    "name": "João Victor Davi de Oliveira",
+    "email": "j.victordavid2@gmail.com",
+    "url": "https://github.com/jvddavid/puppeteer-extra-plugin-devtools"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/jvddavid/puppeteer-extra-plugin-devtools.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jvddavid/puppeteer-extra-plugin-devtools/issues"
+  },
+  "homepage": "https://github.com/jvddavid/puppeteer-extra-plugin-devtools",
+  "scripts": {
+    "build:types": "tsc -p tsconfig.types.json && tsc-alias -p tsconfig.types.json",
+    "build:esm": "bun run scripts/build.esm.ts",
+    "build:cjs": "bun run scripts/build.cjs.ts",
+    "build": "bun build:types && bun build:esm && bun build:cjs",
+    "lint": "biome lint --apply .",
+    "test": "bun test",
+    "prepublishOnly": "bun run build && bun test",
+    "dev": "bun run scripts/dev.ts"
+  },
+  "packageManager": "bun@1.1.7",
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./*": {
+      "types": "./types/*"
+    }
+  },
+  "files": [
+    "dist",
+    "types"
+  ],
+  "devDependencies": {
+    "@biomejs/biome": "^1.8.0",
+    "@types/bun": "latest",
+    "@types/http-auth": "^4.1.4",
+    "@types/http-proxy": "^1.17.14",
+    "@types/localtunnel": "^2.0.4",
+    "@types/node": "^20.14.2",
+    "@types/randomstring": "^1.3.0",
+    "bun": "^1.1.12",
+    "esbuild": "^0.21.4",
+    "puppeteer": "^22.10.0",
+    "puppeteer-extra": "^3.3.6",
+    "tsc-alias": "^1.8.10"
+  },
+  "peerDependencies": {
+    "typescript": "^5.4.5",
+    "playwright-extra": "*",
+    "puppeteer-extra": "*"
+  },
+  "peerDependenciesMeta": {
+    "puppeteer-extra": {
+      "optional": true
+    },
+    "playwright-extra": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "debug": "^4.3.5",
+    "get-port": "^7.1.0",
+    "http-auth": "^4.2.0",
+    "http-proxy": "^1.18.1",
+    "ky": "^1.3.0",
+    "localtunnel": "^2.0.2",
+    "ow": "^2.0.0",
+    "puppeteer-extra-plugin": "^3.2.3",
+    "randomstring": "^1.3.0"
+  },
+  "optionalDependencies": {},
+  "trustedDependencies": [
+    "@biomejs/biome"
+  ]
+}
