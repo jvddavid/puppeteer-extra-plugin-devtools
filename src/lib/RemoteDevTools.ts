@@ -140,7 +140,7 @@ export class DevToolsTunnel extends DevToolsCommon {
     return `${prefix}-${rand}`
   }
 
-  _createBasicAuth(user: string, pass: string) {
+  _createBasicAuth(user: string, pass: string): BasicAuth {
     const basicAuth = httpAuth.basic({}, (username, password, callback) => {
       const isValid = username === user && password === pass
       return callback(isValid)

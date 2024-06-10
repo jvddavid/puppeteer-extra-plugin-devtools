@@ -40,8 +40,7 @@
     "build": "bun build:types && bun build:esm && bun build:cjs",
     "lint": "biome lint --apply .",
     "test": "bun test",
-    "prepublishOnly": "bun run build && bun test",
-    "dev": "bun run scripts/dev.ts"
+    "prepublishOnly": "bun run build && bun test"
   },
   "packageManager": "bun@1.1.7",
   "exports": {
